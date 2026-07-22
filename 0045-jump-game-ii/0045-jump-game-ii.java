@@ -1,0 +1,22 @@
+class Solution {
+    public int jump(int[] nums) {
+
+        int jump = 0;
+        int end = 0;
+        int maxReach = 0;
+
+        for (int i = 0; i < nums.length - 1; i++) {
+
+            if (i + nums[i] > maxReach) {
+                maxReach = i + nums[i];
+            }
+
+            if (i == end) {
+                jump++;
+                end = maxReach;
+            }
+        }
+
+        return jump;
+    }
+}
