@@ -9,30 +9,22 @@ class Solution {
             low = Math.max(low, w);
             high += w;
         }
-
         while (low < high) {
-
             int mid = (low + high) / 2;
-
             int sum = 0;
             int count = 1;
-
             for (int w : weights) {
-
                 if (sum + w > mid) {
                     count++;
                     sum = 0;
                 }
-
                 sum += w;
             }
-
             if (count > days)
                 low = mid + 1;
             else
                 high = mid;
         }
-
         return low;
     }
 }
