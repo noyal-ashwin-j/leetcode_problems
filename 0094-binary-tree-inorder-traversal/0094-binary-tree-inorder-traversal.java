@@ -1,21 +1,19 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 class Solution {
-
-    List<Integer> ans = new ArrayList<>();
-
     public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        helper(root, res);
+        return res;
+    }
 
+    private void helper(TreeNode root, List<Integer> res) {
         if (root == null) {
-            return ans;
+            return;
         }
-
-        inorderTraversal(root.left);
-
-        ans.add(root.val);
-
-        inorderTraversal(root.right);
-
-        return ans;
+        helper(root.left, res);   // Visit Left Subtree
+        res.add(root.val);        // Visit Root Node
+        helper(root.right, res);  // Visit Right Subtree
     }
 }
